@@ -25,7 +25,7 @@ public class arkaKısım : MonoBehaviour
             sumo.GetComponent<karakterKontrolMobil>().joysKontrol = false;
             karakter1.GetComponent<Animator>().enabled = true;
             sumo.GetComponent<karakterKontrolMobil>().speed = 0;
-            if (other.GetComponent<önKısımUI>().puan / puan > 1.25 && other.GetComponent<önKısımUI>().puan >= 1500)
+            if (other.GetComponent<önKısımUI>().puan / puan > 1.25 && other.GetComponent<önKısımUI>().puan >= 1500) //Çok büyük birine karşı daha çok geri tepme
             {
                 anim.SetBool("arkaUzun", true);
                 StartCoroutine(uzun());
@@ -47,7 +47,7 @@ public class arkaKısım : MonoBehaviour
         }
     }
 
-
+    //uzun tepmenin bekleme zamanları ve tepme ölçüleri ve animasyon kodları
     public IEnumerator uzun()
     {
         yield return new WaitForSeconds(1.35f);
@@ -62,6 +62,7 @@ public class arkaKısım : MonoBehaviour
 
         Debug.Log("veri çekildi");
     }
+    //kısa tepmenin bekleme zamanları ve tepme ölçüleri ve animasyon kodları
     public IEnumerator kısa()
     {
         yield return new WaitForSeconds(1.05f);

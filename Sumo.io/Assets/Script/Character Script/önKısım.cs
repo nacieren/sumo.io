@@ -24,16 +24,8 @@ public class önKısım : MonoBehaviour
             sumo.GetComponent<karakterKontrolMobil>().joysKontrol = false;
             karakter1.GetComponent<Animator>().enabled = true;
             sumo.GetComponent<karakterKontrolMobil>().speed = 0;
-            if (other.GetComponent<önKısımUI>().puan/ puan > 1.25 && other.GetComponent<önKısımUI>().puan >= 1500)
-            {
-                anim.SetBool("önUzun", true);
-                StartCoroutine(uzun());
-            }
-            else
-            {
                 anim.SetBool("önKısa", true);
                 StartCoroutine(kısa());
-            }
             Debug.Log("Çarptı");
         }
        

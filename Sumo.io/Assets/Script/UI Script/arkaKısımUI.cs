@@ -16,9 +16,7 @@ public class arkaKısımUI : MonoBehaviour
     {
         puan = AI.GetComponent<yapayZeka>().puan;
     }
-
-
-
+    
     //Çarpışma kodları
     private void OnTriggerStay(Collider other)
     {
@@ -26,18 +24,11 @@ public class arkaKısımUI : MonoBehaviour
         {
             karakter.GetComponent<Animator>().enabled = true;
             AI2.GetComponent<NavMeshAgent>().speed = 0;
-            if (other.GetComponent<önKısım>().puan / puan > 1.25 && other.GetComponent<önKısımUI>().puan >= 1500)
-            {
-                anim.SetBool("arkaUzun", true);
-                StartCoroutine(uzun());
-            }
-            else
-            {
                 anim.SetBool("arkaKısa", true);
                 StartCoroutine(kısa());
-            }
             Debug.Log("Çarptı");
         }
+
         if (other.gameObject.name == "arka" || other.gameObject.name == "yanSağ" || other.gameObject.name == "yanSol")
         {
             karakter.GetComponent<Animator>().enabled = true;
@@ -46,7 +37,6 @@ public class arkaKısımUI : MonoBehaviour
             StartCoroutine(kısa());
         }
     }
-
 
     public IEnumerator uzun()
     {

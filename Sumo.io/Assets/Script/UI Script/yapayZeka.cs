@@ -11,10 +11,21 @@ public class yapayZeka : MonoBehaviour
     public Transform target3;
     public Transform target4;
     public Transform target5;
+    public Transform target6;
+    public Transform target7;
+    public Transform target8;
+    public Transform target9;
+    public Transform target10;
+    public Transform target11;
+    public Transform target12;
+    public Transform target13;
+    public Transform target14;
+    public Transform target15;
     public Transform þeker;
     public float timeRemaining;
     public float puan;
     int rastgeleDüþman;
+    private bool AIyakala=true;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,57 +36,107 @@ public class yapayZeka : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeRemaining > 5f)
+        //3saniyede bir kendini yenileyip þeker klonlayan kod
+        if (timeRemaining > 2.3f)
         {
-            agent.destination = target1.position;
+            if (AIyakala == true)
+            {
+                AIyakala = false;
+                StartCoroutine(yakala());
+            }
         }
         else timeRemaining += Time.deltaTime;
-        //StartCoroutine(yakala());
+        
     }
+    //Hiç durmamalarý için
     public IEnumerator yakala()
     {
-        for (int x = 0; x < 10; x++)
+        for (int x = 0; x < 1; x++)
         {
-            yield return new WaitForSeconds(5f);
-            rastgeleDüþman = Random.Range(1, 13);
+            yield return new WaitForSeconds(3f);
+            rastgeleDüþman = Random.Range(1, 23);
             if (rastgeleDüþman == 1)
             {
              agent.destination = target1.position;
-             x = 0;
+                AIyakala = true;
             }
             if (rastgeleDüþman == 2)
             {
                 agent.destination = target2.position;
-                x = 0;
+                AIyakala = true;
             }
             if (rastgeleDüþman == 3)
             {
                 agent.destination = target3.position;
-                x = 0;
+                AIyakala = true;
             }
             if (rastgeleDüþman == 4)
             {
                 agent.destination = target4.position;
-                x = 0;
+                AIyakala = true;
             }
             if (rastgeleDüþman == 5)
             {
                 agent.destination = target5.position;
-                x = 0;
+                AIyakala = true;
             }
-            if (rastgeleDüþman >5)
+            if (rastgeleDüþman == 6)
+            {
+                agent.destination = target6.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman == 7)
+            {
+                agent.destination = target7.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman == 8)
+            {
+                agent.destination = target8.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman == 9)
+            {
+                agent.destination = target9.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman == 10)
+            {
+                agent.destination = target10.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman == 11)
+            {
+                agent.destination = target11.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman == 12)
+            {
+                agent.destination = target12.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman == 13)
+            {
+                agent.destination = target13.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman == 14)
+            {
+                agent.destination = target14.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman == 15)
+            {
+                agent.destination = target15.position;
+                AIyakala = true;
+            }
+            if (rastgeleDüþman > 15)
             {
                 agent.destination = þeker.position;
-                x = 0;
+                AIyakala = true;
             }
+
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag != "ölüm")
-        {
-            gameObject.SetActive(false);
-            Debug.Log("UI öldü");
-        }
-    }
+   
 }

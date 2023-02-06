@@ -25,16 +25,8 @@ public class önKısımUI : MonoBehaviour
         {
             karakter.GetComponent<Animator>().enabled = true;
             AI2.GetComponent<NavMeshAgent>().speed = 0;
-            if (other.GetComponent<önKısım>().puan / puan > 1.25 && other.GetComponent<önKısımUI>().puan >= 1500)
-            {
-                anim.SetBool("önUzun", true);
-                StartCoroutine(uzun());
-            }
-            else
-            {
                 anim.SetBool("önKısa", true);
                 StartCoroutine(kısa());
-            }
             Debug.Log("Çarptı");
         }
         
@@ -67,6 +59,22 @@ public class önKısımUI : MonoBehaviour
 
             Debug.Log("veri çekildi");
         }
-
+     private void OnCollisionEnter(Collision collision)
+     {
+        if (collision.gameObject.tag == "ölüm") 
+     {
+           gameObject.SetActive(false);
+           Debug.Log("UI öldü");
+           }
+       }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "şeker")
+        {
+            AI.GetComponent<yapayZeka>().puan += 100;
+            Destroy(other.gameObject);
+            transform.localScale *= 1.05f;
+        }
     }
+}
 
