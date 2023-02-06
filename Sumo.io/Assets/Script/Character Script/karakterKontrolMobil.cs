@@ -17,6 +17,7 @@ public class karakterKontrolMobil : MonoBehaviour
     public bool joysKontrol=true;
     public GameObject ölümMenü;
     public GameObject şeker;
+    public int player = 6;
     public bool şekerBool=true;
     private float minX= -1.14f;
     private float maxX= 0.82f;

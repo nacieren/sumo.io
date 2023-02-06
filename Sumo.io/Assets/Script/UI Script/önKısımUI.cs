@@ -11,6 +11,7 @@ public class önKısımUI : MonoBehaviour
     public Transform tp;
     public Animator anim;
     public NavMeshAgent AI2;
+    public GameObject sumo;
     public float puan;
     public void Update()
     {
@@ -65,6 +66,7 @@ public class önKısımUI : MonoBehaviour
      {
            gameObject.SetActive(false);
            Debug.Log("UI öldü");
+           sumo.GetComponent<karakterKontrolMobil>().player=sumo.GetComponent<karakterKontrolMobil>().player-1;
            }
        }
     private void OnTriggerEnter(Collider other)
